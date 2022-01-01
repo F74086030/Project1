@@ -1,22 +1,24 @@
-# 計理project 2020
+# 計理project 2021
 
 ## line bot介紹
-### 一款介紹成大附近美食的line帳號，提供給苦於思考要吃什麼的人們
+### 介紹台南各種美食的line帳號
 
-## fsm 圖
-![](https://i.imgur.com/wKx2hg2.png)
+## fsm 圖 輸入fsm可以產生圖片
+![](https://i.imgur.com/JHTxZJM.png)
 
 ## Demo
-### 輸入start以開始
-![](https://i.imgur.com/IY5Er14.jpg)
-### 選擇想吃的料理風格
-![](https://i.imgur.com/5JtNYgJ.jpg)
-### 選擇想吃的料理類型
-![](https://i.imgur.com/OOIzWpJ.jpg)
-### 選擇餐廳
-![](https://i.imgur.com/1SHs2VW.jpg)
-### 出現餐廳相關資訊，可點選進入其他網站
-![](https://i.imgur.com/6uKxtU8.jpg)
+### 輸入start開始
+![](https://i.imgur.com/fxvjA4v.jpg)
+### 選擇吃飯時間
+![](https://i.imgur.com/fxvjA4v.jpg)
+### 選擇想吃的食物類型
+![](https://i.imgur.com/pizX111.jpg)
+### 選擇想吃的食物種類
+![](https://i.imgur.com/5uUE2iS.jpg)
+### 選擇店家
+![](https://i.imgur.com/H4P0u8a.jpg)
+### 出現店家相關資訊，可點選進入其他推薦店家網頁
+![](https://i.imgur.com/dEKF97u.jpg)
 
 
 

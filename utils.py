@@ -31,18 +31,18 @@ def send_restaurant_info(reply_token, image_url, info_url, map_url, rec_url):
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='餐廳資訊',
-            text='點擊看介紹、地圖、更多推薦!',
+            title='店家資訊',
+            text='點擊看店家介紹、地圖及類似店家!',
             thumbnail_image_url=image_url,
             actions=[
                 URITemplateAction(
-                    label='介紹',
+                    label='店家介紹',
                     uri=info_url
                 ), URITemplateAction(
                     label='地圖',
                     uri=map_url
                 ), URITemplateAction(
-                    label='更多推薦',
+                    label='類似店家',
                     uri=rec_url
                 ),
             ]
@@ -53,26 +53,51 @@ def send_restaurant_info(reply_token, image_url, info_url, map_url, rec_url):
     return "OK"
 
 
-def send_japanese_type(reply_token, id):
+def send_breakfast_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='餐點類型',
-            text='點擊你有興趣的料理',
-            thumbnail_image_url='https://i.imgur.com/ZWMxMBT.jpg',
+            title='早餐類型',
+            text='想吃中式還是西式早餐呢?',
+            thumbnail_image_url='https://i.imgur.com/SSeToxn.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='飯類',
-                    text='rice'
+                    label='中式早餐',
+                    text='breakfast_chinese'
                 ),
                 MessageTemplateAction(
-                    label='壽司、生魚片',
-                    text='sushi'
+                    label='西式早餐',
+                    text='breakfast_western'
+                ),
+            ]
+        )
+    )
+    line_bot_api.reply_message(reply_token, buttons_template)
+
+    return "OK"
+
+
+def send_breakfast_chinese_type(reply_token, id):
+    line_bot_api = LineBotApi(channel_access_token)
+    buttons_template = TemplateSendMessage(
+        alt_text='Buttons Template',
+        template=ButtonsTemplate(
+            title='中式早餐',
+            text='點擊食物種類',
+            thumbnail_image_url='https://i.imgur.com/3rllC2L.jpg',
+            actions=[
+                MessageTemplateAction(
+                    label='蛋餅',
+                    text='chinese_omelet'
                 ),
                 MessageTemplateAction(
-                    label='拉麵',
-                    text='ramen'
+                    label='牛肉湯',
+                    text='beef_soup'
+                ),
+                MessageTemplateAction(
+                    label='鹹粥',
+                    text='savory_porridge'
                 )
             ]
         )
@@ -82,26 +107,26 @@ def send_japanese_type(reply_token, id):
     return "OK"
 
 
-def send_thai_restaurant_type(reply_token, id):
+def send_chinese_omelet_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='泰式餐廳',
-            text='點擊餐廳看介紹',
-            thumbnail_image_url='https://i.imgur.com/M5qC6xd.jpg',
+            title='蛋餅',
+            text='點擊店家看介紹',
+            thumbnail_image_url='https://i.imgur.com/gPvkdFy.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='山豬林',
-                    text='thai1'
+                    label='阿公阿婆蛋餅',
+                    text='chinese_omelet1'
                 ),
                 MessageTemplateAction(
-                    label='BITCH小姐',
-                    text='thai2'
+                    label='少爺蛋餅',
+                    text='chinese_omelet2'
                 ),
                 MessageTemplateAction(
-                    label='DEMO',
-                    text='thai3'
+                    label='好時辰手工蛋餅',
+                    text='chinese_omelet3'
                 )
             ]
         )
@@ -111,26 +136,26 @@ def send_thai_restaurant_type(reply_token, id):
     return "OK"
 
 
-def send_korean_restaurant_type(reply_token, id):
+def send_beef_soup_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='韓式餐廳',
-            text='點擊餐廳看介紹',
-            thumbnail_image_url='https://i.imgur.com/I4w6jPT.jpg',
+            title='牛肉湯',
+            text='點擊店家看介紹',
+            thumbnail_image_url='https://i.imgur.com/Lp6nNb1.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='豬對有',
-                    text='korean1'
+                    label='新鮮牛肉湯',
+                    text='beef_soup1'
                 ),
                 MessageTemplateAction(
-                    label='韓朝',
-                    text='korean2'
+                    label='圓環牛肉湯',
+                    text='beef_soup2'
                 ),
                 MessageTemplateAction(
-                    label='老韓家韓式廚房',
-                    text='korean3'
+                    label='西羅殿牛肉湯',
+                    text='beef_soup3'
                 )
             ]
         )
@@ -140,26 +165,26 @@ def send_korean_restaurant_type(reply_token, id):
     return "OK"
 
 
-def send_tainan_restaurant_type(reply_token, id):
+def send_savory_porridge_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='排隊美食',
-            text='點擊餐廳看介紹',
-            thumbnail_image_url='https://i.imgur.com/prSNnGs.jpg',
+            title='鹹粥',
+            text='點擊店家看介紹',
+            thumbnail_image_url='https://i.imgur.com/NMTkmAl.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='小赤佬',
-                    text='tainan1'
+                    label='悅津鹹粥',
+                    text='savory_porridge1'
                 ),
                 MessageTemplateAction(
-                    label='文章牛肉湯',
-                    text='tainan2'
+                    label='阿堂鹹粥',
+                    text='savory_porridge2'
                 ),
                 MessageTemplateAction(
-                    label='富盛號',
-                    text='tainan3'
+                    label='阿憨鹹粥',
+                    text='savory_porridge3'
                 )
             ]
         )
@@ -169,22 +194,22 @@ def send_tainan_restaurant_type(reply_token, id):
     return "OK"
 
 
-def send_hotpot_restaurant_type(reply_token, id):
+def send_breakfast_western_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='火鍋',
-            text='點擊餐廳看介紹',
-            thumbnail_image_url='https://i.imgur.com/80waVGx.jpg',
+            title='西式早餐',
+            text='點擊店家看介紹',
+            thumbnail_image_url='https://i.imgur.com/HoYgmZp.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='築間',
-                    text='hotpot1'
+                    label='六吋盤',
+                    text='breakfast_western1'
                 ),
                 MessageTemplateAction(
-                    label='五鮮極',
-                    text='hotpot2'
+                    label='哈利8號',
+                    text='breakfast_western2'
                 )
             ]
         )
@@ -194,22 +219,26 @@ def send_hotpot_restaurant_type(reply_token, id):
     return "OK"
 
 
-def send_diner_restaurant_type(reply_token, id):
+def send_lunch_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='美式餐廳',
-            text='點擊餐廳看介紹',
-            thumbnail_image_url='https://i.imgur.com/mupVQCY.jpg',
+            title='午餐類型',
+            text='想吃中式或西式午餐呢?也有其他選擇喔!',
+            thumbnail_image_url='https://i.imgur.com/rzWqX45.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='sk尚恩廚房',
-                    text='diner1'
+                    label='中式午餐',
+                    text='lunch_chinese'
                 ),
                 MessageTemplateAction(
-                    label='可可貝里',
-                    text='diner2'
+                    label='西式午餐',
+                    text='lunch_western'
+                ),
+                MessageTemplateAction(
+                    label='其他',
+                    text='lunch_other'
                 )
             ]
         )
@@ -219,26 +248,26 @@ def send_diner_restaurant_type(reply_token, id):
     return "OK"
 
 
-def send_japanese_rice_type(reply_token, id):
+def send_lunch_chinese_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='飯類',
-            text='想吃什麼',
-            thumbnail_image_url='https://i.imgur.com/aTWsQGB.jpg',
+            title='中式午餐',
+            text='點擊店家看介紹',
+            thumbnail_image_url='https://i.imgur.com/J7ceN0H.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='丼飯',
-                    text='donburi'
+                    label='國華街肉燥飯',
+                    text='lunch_chinese1'
                 ),
                 MessageTemplateAction(
-                    label='豬排',
-                    text='tonkatsu'
+                    label='葉家小卷米粉',
+                    text='lunch_chinese2'
                 ),
                 MessageTemplateAction(
-                    label='日式定食',
-                    text='teishoku'
+                    label='手工鹽水意麵',
+                    text='lunch_chinese3'
                 )
             ]
         )
@@ -248,26 +277,26 @@ def send_japanese_rice_type(reply_token, id):
     return "OK"
 
 
-def send_japanese_rice_restaurant_type(reply_token, id):
+def send_lunch_western_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='丼飯',
-            text='點擊餐廳看介紹',
-            thumbnail_image_url='https://i.imgur.com/aTWsQGB.jpg',
+            title='西式午餐',
+            text='點擊店家看介紹',
+            thumbnail_image_url='https://i.imgur.com/V5JF6oj.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='肉肉控',
-                    text='donburi1'
+                    label='飲食客 in Stock',
+                    text='lunch_western1'
                 ),
                 MessageTemplateAction(
-                    label='職人雙響丼',
-                    text='donburi2'
+                    label='食べオム洋食歐姆',
+                    text='lunch_western2'
                 ),
                 MessageTemplateAction(
-                    label='炙丼家',
-                    text='donburi3'
+                    label='SK尚恩',
+                    text='lunch_western3'
                 )
             ]
         )
@@ -277,26 +306,26 @@ def send_japanese_rice_restaurant_type(reply_token, id):
     return "OK"
 
 
-def send_japanese_teishoku_restaurant_type(reply_token, id):
+def send_lunch_other_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='日式定食',
-            text='點擊餐廳看介紹',
-            thumbnail_image_url='https://i.imgur.com/TU6ESPm.jpg',
+            title='其他種類',
+            text='點擊店家看介紹',
+            thumbnail_image_url='https://i.imgur.com/Tty1NxX.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='漁人食堂',
-                    text='teishoku1'
+                    label='ㄧ拉面',
+                    text='lunch_other1'
                 ),
                 MessageTemplateAction(
                     label='櫻之庭',
-                    text='teishoku2'
+                    text='lunch_other2'
                 ),
                 MessageTemplateAction(
-                    label='石火山碳燒蓋飯',
-                    text='teishoku3'
+                    label='歐八不是阿啾喜',
+                    text='lunch_other3'
                 )
             ]
         )
@@ -306,27 +335,23 @@ def send_japanese_teishoku_restaurant_type(reply_token, id):
     return "OK"
 
 
-def send_japanese_sushi_restaurant_type(reply_token, id):
+def send_dinner_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='壽司、生魚片',
-            text='點擊餐廳看介紹',
-            thumbnail_image_url='https://i.imgur.com/t7fcAMD.jpg',
+            title='晚餐類型',
+            text='想吃中式或西式晚餐呢?',
+            thumbnail_image_url='https://i.imgur.com/CyFnXGD.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='毛丼',
-                    text='sushi1'
+                    label='中式',
+                    text='dinner_chinese'
                 ),
                 MessageTemplateAction(
-                    label='鮨次郎',
-                    text='sushi2'
+                    label='西式',
+                    text='dinner_western'
                 ),
-                MessageTemplateAction(
-                    label='日暮壽司',
-                    text='sushi3'
-                )
             ]
         )
     )
@@ -335,26 +360,26 @@ def send_japanese_sushi_restaurant_type(reply_token, id):
     return "OK"
 
 
-def send_japanese_ramen_restaurant_type(reply_token, id):
+def send_dinner_chinese_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='拉麵',
-            text='點擊餐廳看介紹',
-            thumbnail_image_url='https://i.imgur.com/MXrZ5Bw.jpg',
+            title='中式晚餐',
+            text='點擊店家看介紹',
+            thumbnail_image_url='https://i.imgur.com/H1ygK2p.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='覺丸',
-                    text='ramen1'
+                    label='金元寶餐館',
+                    text='dinner_chinese1'
                 ),
                 MessageTemplateAction(
-                    label='八峰亭',
-                    text='ramen2'
+                    label='七海魚皮',
+                    text='dinner_chinese2'
                 ),
                 MessageTemplateAction(
-                    label='寶來軒',
-                    text='ramen3'
+                    label='龍來現代炒館',
+                    text='dinner_chinese3'
                 )
             ]
         )
@@ -363,27 +388,26 @@ def send_japanese_ramen_restaurant_type(reply_token, id):
 
     return "OK"
 
-
-def send_japanese_tonkatsu_restaurant_type(reply_token, id):
+def send_dinner_western_type(reply_token, id):
     line_bot_api = LineBotApi(channel_access_token)
     buttons_template = TemplateSendMessage(
         alt_text='Buttons Template',
         template=ButtonsTemplate(
-            title='豬排',
-            text='點擊餐廳看介紹',
-            thumbnail_image_url='https://i.imgur.com/ZWMxMBT.jpg',
+            title='西式晚餐',
+            text='點擊店家看介紹',
+            thumbnail_image_url='https://i.imgur.com/NMUM8wo.jpg',
             actions=[
                 MessageTemplateAction(
-                    label='元味屋',
-                    text='tonkatsu1'
+                    label='胖廚西式餐廳',
+                    text='dinner_western1'
                 ),
                 MessageTemplateAction(
-                    label='豚讚',
-                    text='tonkatsu2'
+                    label='台南木棉道餐廳',
+                    text='dinner_western2'
                 ),
                 MessageTemplateAction(
-                    label='森井',
-                    text='tonkatsu3'
+                    label='餵胃',
+                    text='dinner_western3'
                 )
             ]
         )
@@ -391,7 +415,6 @@ def send_japanese_tonkatsu_restaurant_type(reply_token, id):
     line_bot_api.reply_message(reply_token, buttons_template)
 
     return "OK"
-
 
 def send_button_carousel(id):
     line_bot_api = LineBotApi(channel_access_token)
@@ -400,43 +423,24 @@ def send_button_carousel(id):
         template=CarouselTemplate(
             columns=[
                 CarouselColumn(
-                    thumbnail_image_url='https://i.imgur.com/M5qC6xd.jpg',
-                    title='餐廳推薦',
-                    text='想吃什麼種類?',
+                    thumbnail_image_url='https://i.imgur.com/IDEmUpM.jpg',
+                    title='店家推薦',
+                    text='想吃什麼呢??',
                     actions=[
                         MessageTemplateAction(
-                            label='美式',
-                            text='diner'
+                            label='早餐',
+                            text='breakfast'
                         ),
                         MessageTemplateAction(
-                            label='泰式',
-                            text='thai cuisine'
+                            label='午餐',
+                            text='lunch'
                         ),
                         MessageTemplateAction(
-                            label='韓式',
-                            text='korean cuisine'
+                            label='晚餐',
+                            text='dinner'
                         ),
                     ]
                 ),
-                CarouselColumn(
-                    thumbnail_image_url='https://i.imgur.com/TU6ESPm.jpg',
-                    title='餐廳推薦',
-                    text='想吃什麼種類?',
-                    actions=[
-                        MessageTemplateAction(
-                            label='日式',
-                            text='japanese cuisine'
-                        ),
-                        MessageTemplateAction(
-                            label='火鍋',
-                            text='hotpot'
-                        ),
-                        MessageTemplateAction(
-                            label='排隊美食',
-                            text='tainan'
-                        ),
-                    ]
-                )
             ]
         )
     )
